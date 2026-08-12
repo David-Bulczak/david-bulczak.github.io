@@ -640,6 +640,30 @@ section .container {
   color: #fff;
 }
 
+.resume .resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: 2px solid #dc3522;
+  border-radius: 4px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.resume .resume-download:hover {
+  background: #dc3522;
+  color: #fff;
+}
+
+.resume .resume-download i {
+  font-size: 18px;
+}
+
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;

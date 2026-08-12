@@ -43,8 +43,19 @@ server-side, so this redirect hop is what makes those links work; the address
 bar ends up showing the anchor form. They are `noindex` with a canonical
 pointing at the main page.
 
+`assets/js/section-url.js` then keeps the address bar in step as you click
+around: the template is a section-swap layout whose nav handler calls
+`preventDefault()` and never touches `location`, so without this the URL would
+stay frozen at whatever the page was opened with. It rewrites `/#resume` to
+`/resume` on load and `pushState`s the clean path on each nav click, with
+`popstate` replaying the matching link so back/forward work.
+
+It **must stay after `main.js`** in `index.html` — `main.js` reads
+`location.hash` on `load` to pick the initial section, so the hash has to
+survive until then.
+
 If a new nav section is added to `index.html`, add a matching directory to keep
-the set consistent.
+the set consistent, and add its id to `SECTIONS` in `section-url.js`.
 
 ## Content sources
 
